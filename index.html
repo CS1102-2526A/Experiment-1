@@ -1,170 +1,232 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Experiment 1</title>
-    <style>
-        body {
-                background-color: #FFFAF0;
-        }
-        h1 {
-            text-align: center;
-            font-size: 20px;
-        }
-        h2 {
-            font-size: 20px;
-        }
-        h3 {
-            font-size: 30px;
-        }
+	<title>Experiment 1</title>
+	<style>
+		body {
+			background-color: #FFFAF0;
+		}
+        
+		h1 {
+			text-align: center;
+			font-size: 20px;
+		}
+		        
+		h2 {
+			font-size: 20px;
+		}
+		        
+		h3 {
+			font-size: 30px;
+		}
 
-        .left {
-            width: 100px;
-            height: 100px;
-            background: red;
-            left: 150px;
-            top: 30px;
-            position: absolute;
-            border-radius: 5px;
-        }
+		.left {
+			width: 100px;
+			height: 100px;
+			background: red;
+			left: 150px;
+			top: 30px;
+			position: absolute;
+			border-radius: 5px;
+		}
 
-        .right {
-            width: 100px;
-            height: 100px;
-            background: blue;
-            left: 350px;
-            top: 30px;
-            position: absolute;
-            border-radius: 5px;
-        }
+		.right {
+			width: 100px;
+			height: 100px;
+			background: blue;
+			left: 350px;
+			top: 30px;
+			position: absolute;
+			border-radius: 5px;
+		}
+		
+		.bottom {
+			width: 300px;
+			height: 100px;
+			background-color: purple;
+			top: 200px;
+			left: 150px;
+			position: absolute;
+			border-radius: 5px;
+		}
 
-        .bottom {
-            width: 300px;
-            height: 100px;
-            background-color: purple;
-            top: 200px;
-            left: 150px;
-            position: absolute;
-            border-radius: 5px;
-        }
-
-        .box {
-            position: relative;
-            height: 350px;
-            width: 600px;
-            border: 1px solid grey;
-            background-color: white;
-            margin: 45px;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        @keyframes acid {
-            from { top: 30px; }
-            to { top: 200px; background-color: transparent; }
-        }
-
-        @keyframes base {
-            from { top: 30px; }
-            to { top: 200px; background-color: transparent; }
-        }
-
-        @keyframes indicator {
-            0% { background-color: purple; }
-            55% { background-color: purple; }
-            100% { background-color: purple; }
-        }
-
-        .left-acid {
-            animation: acid 5s forwards;
-        }
-
-        .right-base {
-            animation: base 5s forwards;
-        }
-
-        .bottom-indicator {
-            animation: indicator 5s forwards;
-        }
-        .left, .right, .bottom {
-            position: absolute;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: white;
-            text-shadow: 3px 3px 3px rgba(107, 100, 104, 0.3);
-        }
-        span {
-        text-decoration-line: underline
-        }
+		.box {
+			position: relative;
+			height: 350px;
+			width: 600px;
+			border: 1px solid grey;
+			background-color: white;
+			margin: 45px;
+			border-radius: 10px;
+			overflow: hidden;
+		}
+		        
+		.middle {
+			width: 100px;
+			height: 100px;
+			background-color: transparent;
+			top: 30px;
+			left: 250px;
+		}
+		
+		@keyframes acid {
+			from {top: 30px;}
+			to {top: 30px; left: 250px; background-color: transparent;}
+		}
+		
+		@keyframes base {
+			from {top: 30px;}
+			to {top: 30px; left: 250px; background-color: transparent;}
+		}
+		        
+		@keyframes mixture {
+			0% {top: 30px;border:transparent;}
+			65% {top: 30px;background-color: green;}
+			100% {top: 200px; background-color:transparent;}
+		}
+		
+		@keyframes indicator {
+			0% { background-color: purple; }
+			55% { background-color: purple; }
+			100% { background-color: purple; }
+		}
+		
+		.left-acid {
+			animation: acid 4s forwards;
+		}
+		
+		.right-base {
+			animation: base 4s forwards;
+		}
+		        
+		.middle-mixture {
+			animation: mixture 5s forwards;
+		}
+		
+		.bottom-indicator {
+			animation: indicator 5s forwards;
+		}
+		        
+		.left,.right,.middle,.bottom {
+			position: absolute;
+			border-radius: 5px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: bold;
+			color: white;
+		}
+		        
+		span {
+			font-weight: bold;
+		}
+		        
+		#text1 {
+			text-align: center;
+		}
+		        
+		table, th, td {
+			border:1px solid black;
+			text-align: center;
+		}
     </style>
 </head>
 <body>
-    <h1>CS1102 - Simulated Chemistory Reaction - 2025/2026 Semester A<br/>
-        <br/>Experiment 1 - Chemical Element (Litmus)<br/>
-        <br/>Tong Wing Yan 57905703, Tam Wing Nga 58196547, Wong Cheuk Wing 58112774, Wong Ching Yu 58620001
-    </h1>
-    <br/>
-   
-    <h2><a href="https://cs1102-2526a.github.io/main/">Return Home Page</a></h2>
-    <br/>
-   
-    <h3>Observing a Neutralisation Reaction with Litmus</h3>
-    <p>Let's explore a classic acid-base reaction between hydrochloric acid (HCl) and sodium hydroxide (NaOH). When HCl and NaOH are combined, these two chemicals react in a neutralisation reaction and form sodium chloride (NaCl), which is commonly defined as table salt, and water (H₂O). The chemical equation is:</p>
-	<p>HCl + NaOH → NaCl + H₂O</p><br/>
+	<h1>
+		<br/>CS1102 - Simulated Chemistory Reaction - 2025/2026 Semester A<br/>
+		<br/>Experiment 1 - Observing a Neutralisation Reaction with Litmus<br/>
+		<br/>Tong Wing Yan 57905703, Tam Wing Nga 58196547, Wong Cheuk Wing 58112774, Wong Ching Yu 58620001<br/>
+	</h1><br/>
+	   
+	<h2><a href="https://cs1102-2526a.github.io/main/">Return Home Page</a></h2><br/>
+	   
+	<p>Let's explore a classic acid-base reaction between hydrochloric acid (HCl) and sodium hydroxide (NaOH). When HCl and NaOH are combined, these two chemicals react in a neutralisation reaction and form sodium chloride (NaCl), which is commonly defined as table salt, and water (H₂O). The chemical equation is:</p>
 	
-    <h3>What is neutralisation?</h3>
-    <p>When there is an exact amount of both alkali and acid mixed, they will cancel each other out and form a neutral solution. The reaction is called neutralisation. </p>
+	<div id="text1">HCl + NaOH → NaCl + H₂O</div><br/>
 	
-    <span>Common Examples of Neutralization in our Daily Life</span>
-    <p>Personal Health and Hygiene:</p> 
-    <p>Household Cleaning:</p>
-    <p>Food and Cooking:</p><br/>
-    
-    <p>But how can we observe these chemical changes obviously? Since the results, like colours, of acid-base reaction are often clear, turbid or colourless, we can use a pH indicator to examine the chemical changes.</p><br/>
-    
+	<h3>What is neutralisation?</h3>
+		<p>When there is an exact amount of both alkali and acid mixed, they will cancel each other out and form a neutral solution. The reaction is called neutralisation.</p> 
+	
+		<p><span>Common Examples of neutralization in our daily life</span></p>
+		<ol>
+			<li><span>Personal Health & Hygiene</span></li>
+				<ul>
+					<li><span>Relief from a Stomach Upset:</span> The stomach produces hydrochloric acid for digestion. When your stomach has too much acid, you can make use of antacid tablets, which contain alkalis, to neutralize the extra acid.</li>
+					<li><span>Prevent Cavity:</span> Do you know that germs produce acid in your mouth, which can damage teeth? It is important to brush your teeth using toothpaste as it contains slightly alkaline ingredients, to help cancel out these harmful acids and keep your teeth strong.</li>
+				</ul><br/>
+			<li><span>Household Cleaning</span></li>
+				<ul>
+					<li><span>Eliminate Limescale:</span> Limescale is an alkaline ingredient. You can make use of cleaning products with weak acids, such as vinegar, to dissolve the stains through the neutralization reaction.</li>
+				</ul>
+		</ol><br/>
+	
 	<h3>Using Litmus as an Indicator</h3>
-    <p>One of the pH indicators commonly used is Litmus Paper, which is made from a dye, its colour will change based on whether a solution is 		acidic or alkaline.</p> 
-    <p>Litmus paper colour will turns red if there is acidic solutions, turns blue in alkaline solutions, and stay constant of what colour of litmus paper is using in neutral solutions.</p>
-    <br/>
-
-
-
-    <h3>Click the button to check what color there is.</h3>
-    <button onclick="startAnimation()">Check it now!</button>
-       
-    <br/>
-    <div class="box">
-        <div class="left">HCl</div>
-        <div class="right">NaOH</div>
-        <div class="bottom">Purple Litmus Paper</div>
-    </div>
-
-    <script>
-        function startAnimation() {
-
-            const left = document.querySelector('.left');
-            const right = document.querySelector('.right');
-            const bottom = document.querySelector('.bottom');
-
-            left.classList.remove('left-acid');
-            right.classList.remove('right-base');
-            bottom.classList.remove('bottom-indicator');
-            
-            void left.offsetHeight;
-            void right.offsetHeight;
-            void bottom.offsetHeight;
-            
-            void left.offsetWidth;
-            void right.offsetWidth;
-            void bottom.offsetWidth;
-            
-            // Add animation classes
-            left.classList.add('left-acid');
-            right.classList.add('right-base');
-            bottom.classList.add('bottom-indicator');
-        }
-    </script>
+		<p>But how can we observe these chemical changes obviously? Since the results, like colours, of acid-base reaction are often clear, turbid or colourless, we can use a pH indicator to examine the chemical changes.<p>
+		<p>One of the pH indicators commonly used is Litmus Paper. The colour of the litmus paper will change based on whether a solution is acidic or alkaline.</p> 
+		<p>Litmus solution turns red in acidic solutions, blue in alkaline solutions, and stays constant in neutral solutions. There are three common litmus papers: Red Litmus Paper, Blue Litmus Paper and Purple Litmus Paper.</p> 
+		<p>Here is a table of the changes in colour of the above three litmus papers when they face acid, alkaline and neutral solutions:</p>
+			<table style="width:100%">
+			<tr>
+			<th> </th>
+			<th>Red Litmus Paper</th>
+			<th>Blue Litmus Paper</th>
+			<th>Purple Litmus Paper</th>
+			</tr>
+			<tr>
+			<th>Acid Solution</th>
+			<td>Red</td>
+			<td>Red</td>
+			<td>Red</td>
+			</tr>
+			<tr>
+			<th>Alkaline Solution</th>
+			<td>Blue</td>
+			<td>Blue</td>
+			<td>Blue</td>
+			</tr>
+			<tr>
+			<th>Neutral Solution</th>
+			<td>Red</td>
+			<td>Blue</td>
+			<td>Purple</td>
+			</table>
+	
+	<h3>Click the button to check what color there is.</h3>
+		<button onclick="startAnimation()">Check it now!</button><br/>
+			<div class="box">
+				<div class="left">HCl</div>
+				<div class="right">NaOH</div>
+				<div class="middle">NaCl + H₂O</div>
+				<div class="bottom">Purple Litmus Paper</div>
+			</div>
+	
+			<script>
+			function startAnimation() {
+			const left = document.querySelector('.left');
+			const right = document.querySelector('.right');
+			const middle = document.querySelector('.middle');
+			const bottom = document.querySelector('.bottom');
+			
+			left.classList.remove('left-acid');
+			right.classList.remove('right-base');
+			middle.classList.remove('middle-mixture');
+			bottom.classList.remove('bottom-indicator');
+			            
+			void left.offsetHeight;
+			void right.offsetHeight;
+			void middle.offsetHeight;
+			void bottom.offsetHeight;
+			            
+			void left.offsetWidth;
+			void right.offsetWidth;
+			void middle.offsetWidth;
+			void bottom.offsetWidth;
+			
+			left.classList.add('left-acid');
+			right.classList.add('right-base');
+			middle.classList.add('middle-mixture');
+			bottom.classList.add('bottom-indicator');
+			}
+			</script>
 </body>
 </html>
